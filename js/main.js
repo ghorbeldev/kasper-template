@@ -19,7 +19,7 @@ anchors.forEach(anchor => {
     anchor.classList.add('active');
   };
 });
-const bg = document.querySelector('.bg');
+const bgs = document.querySelectorAll('[class^="bg"]');
 const bullets = document.querySelectorAll('.bullets li');
 bullets.forEach((bullet, indx) => {
   bullet.onclick = () => {
@@ -27,7 +27,8 @@ bullets.forEach((bullet, indx) => {
       bullet.classList.remove('active');
     });
     bullet.classList.add('active');
-    bg.style.backgroundImage = `url(../images/landing${indx}.jpg)`;
+    bgs.forEach(bg => bg.classList.remove('active'));
+    bgs[indx].classList.add('active');
   };
 });
 
@@ -46,7 +47,8 @@ leftArrow.onclick = () => {
   let newIndex = currentIndx - 1 >= 0 ? currentIndx - 1 : bullets.length - 1;
   bullets[currentIndx].classList.remove('active');
   bullets[newIndex].classList.add('active');
-  bg.style.backgroundImage = `url(../images/landing${newIndex}.jpg)`;
+  bgs.forEach(bg => bg.classList.remove('active'));
+  bgs[newIndex].classList.add('active');
 };
 rightArrow.onclick = () => {
   let activeBullet = document.querySelector('.bullets .active');
@@ -55,7 +57,8 @@ rightArrow.onclick = () => {
   let newIndex = currentIndx + 1 <= bullets.length - 1 ? currentIndx + 1 : 0;
   bullets[currentIndx].classList.remove('active');
   bullets[newIndex].classList.add('active');
-  bg.style.backgroundImage = `url(../images/landing${newIndex}.jpg)`;
+  bgs.forEach(bg => bg.classList.remove('active'));
+  bgs[newIndex].classList.add('active');
 };
 const shuffles = document.querySelectorAll('.shuffle li');
 
