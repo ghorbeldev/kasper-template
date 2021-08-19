@@ -40,7 +40,7 @@ toggleMenu.onclick = () => {
 
 const leftArrow = document.querySelector('.arrow-left');
 const rightArrow = document.querySelector('.arrow-right');
-slideToLeft = () => {
+const slideToLeft = () => {
   let activeBullet = document.querySelector('.bullets .active');
   let parent = activeBullet.parentElement;
   let currentIndx = Array.prototype.indexOf.call(parent.children, activeBullet);
@@ -50,7 +50,7 @@ slideToLeft = () => {
   bgs.forEach(bg => bg.classList.remove('active'));
   bgs[newIndex].classList.add('active');
 };
-slideToRight = () => {
+const slideToRight = () => {
   let activeBullet = document.querySelector('.bullets .active');
   let parent = activeBullet.parentElement;
   let currentIndx = Array.prototype.indexOf.call(parent.children, activeBullet);
