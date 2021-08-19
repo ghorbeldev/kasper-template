@@ -40,7 +40,7 @@ toggleMenu.onclick = () => {
 
 const leftArrow = document.querySelector('.arrow-left');
 const rightArrow = document.querySelector('.arrow-right');
-leftArrow.onclick = () => {
+slideToLeft = () => {
   let activeBullet = document.querySelector('.bullets .active');
   let parent = activeBullet.parentElement;
   let currentIndx = Array.prototype.indexOf.call(parent.children, activeBullet);
@@ -50,7 +50,7 @@ leftArrow.onclick = () => {
   bgs.forEach(bg => bg.classList.remove('active'));
   bgs[newIndex].classList.add('active');
 };
-rightArrow.onclick = () => {
+slideToRight = () => {
   let activeBullet = document.querySelector('.bullets .active');
   let parent = activeBullet.parentElement;
   let currentIndx = Array.prototype.indexOf.call(parent.children, activeBullet);
@@ -60,6 +60,20 @@ rightArrow.onclick = () => {
   bgs.forEach(bg => bg.classList.remove('active'));
   bgs[newIndex].classList.add('active');
 };
+leftArrow.onclick = slideToLeft;
+rightArrow.onclick = slideToRight;
+document.addEventListener('keydown', e => {
+  switch (e.keyCode) {
+    case 37:
+      slideToLeft();
+      break;
+    case 39:
+      slideToRight();
+      break;
+    default:
+      break;
+  }
+});
 const shuffles = document.querySelectorAll('.shuffle li');
 
 shuffles.forEach(shuffle => {
