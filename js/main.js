@@ -38,8 +38,6 @@ toggleMenu.onclick = () => {
 	toggleMenu.classList.toggle('active');
 };
 document.onclick = e => {
-	console.log(e.target);
-	console.log();
 	if (
 		e.target.id !== 'toggle' &&
 		e.target.id !== 'menu' &&
